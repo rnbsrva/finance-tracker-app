@@ -1,0 +1,37 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            authorization-uri: ${OAUTH2_SERVER:http://localhost:8080}/auth/realms/socialapp/protocol/openid-connect/auth
+            token-uri: ${OAUTH2_SERVER:http://localhost:8080}/auth/realms/socialapp/protocol/openid-connect/token
+            jwk-set-uri: ${OAUTH2_SERVER:http://localhost:8080}/auth/realms/socialapp/protocol/openid-connect/certs
+            user-info-uri: ${OAUTH2_SERVER:http://localhost:8080}/auth/realms/socialapp/protocol/openid-connect/userinfo
+            user-name-attribute: sub
+            issuer-uri: ${OAUTH2_SERVER:http://localhost:8080}/auth/realms/socialapp
+        registration:
+          finance_app:
+            provider: keycloak
+            client-name: "finance_app"
+            client-id: "finance_app"
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            authorization-grant-type: authorization_code
+            scope: openid
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/finance_app
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:0000}
+server:
+  port: 2912
+  servlet:
+    context-path: /api/v1/
+logging:
+  level:
+    org.springframework:
+      web: debug
+      security: debug

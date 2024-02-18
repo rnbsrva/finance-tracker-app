@@ -50,4 +50,10 @@ public class User  extends BaseEntity {
     )
     private List<Budget> budgets;
 
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL
+    )
+    private List<Category> categories;
+
 }

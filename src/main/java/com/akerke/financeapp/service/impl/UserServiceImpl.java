@@ -25,21 +25,23 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
-        return null;
+        return userRepository.findAll();
     }
 
     @Override
     public User getById(Long id) {
-        return null;
+        return userRepository.findByID(id);
     }
 
     @Override
-    public User update(UserDTO userDTO) {
-        return null;
+    public User update(Long id, UserDTO userDTO) {
+        var user = userRepository.findByID(id);
+        userMapper.update(userDTO, user);
+        return userRepository.save(user);
     }
 
     @Override
     public void delete(Long id) {
-
+        userRepository.delete(userRepository.findByID(id));
     }
 }

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 public record TransactionDTO (
         Long userId,
-        Category category,
+        Long categoryId,
         TransactionType transactionType,
         BigDecimal amount
 ){

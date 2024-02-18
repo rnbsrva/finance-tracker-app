@@ -14,4 +14,7 @@ public class Category extends BaseEntity{
 
     private String name;
 
+    @ManyToOne
+    private User user;
+
 }

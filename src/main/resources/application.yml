@@ -28,8 +28,6 @@ spring:
     password: ${DB_PASSWORD:0000}
 server:
   port: 2912
-  servlet:
-    context-path: /api/v1/
 logging:
   level:
     org.springframework:

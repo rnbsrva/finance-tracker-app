@@ -1,6 +1,5 @@
 package com.akerke.financeapp.model.entity;
 
-import com.akerke.financeapp.model.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,18 +10,16 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-public class Transaction extends BaseEntity {
+public class SavingsGoal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private BigDecimal targetMoney;
+    private LocalDate targetDate;
+    private BigDecimal savedMoney;
+    private Boolean isAchieved;
+
     @ManyToOne
     private User user;
-
-    @ManyToOne
-    private Category category;
-
-    private TransactionType type;
-    private BigDecimal amount;
-
 }

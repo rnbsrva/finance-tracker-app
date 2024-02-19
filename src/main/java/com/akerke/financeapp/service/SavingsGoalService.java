@@ -15,7 +15,7 @@ public interface SavingsGoalService {
 
     SavingsGoal getById(Long id);
 
-    SavingsGoal update(SavingsGoalDTO savingsGoalDTO);
+    SavingsGoal update(Long id, SavingsGoalDTO savingsGoalDTO);
 
     void delete(Long id);
 

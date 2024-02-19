@@ -1,11 +1,14 @@
 package com.akerke.financeapp.service.impl;
 
+import com.akerke.financeapp.common.exception.EntityNotFoundException;
 import com.akerke.financeapp.common.mapper.UserMapper;
 import com.akerke.financeapp.model.dto.UserDTO;
 import com.akerke.financeapp.model.entity.User;
 import com.akerke.financeapp.repository.UserRepository;
 import com.akerke.financeapp.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +19,13 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+
+    @Override
+    public User me() {
+        var oidcUser = (OidcUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        var email = (String) oidcUser.getClaims().get("email");
+        return userRepository.getUserByEmail(email).orElseThrow( ()->new EntityNotFoundException(User.class, email));
+    }
 
     @Override
     public User save(UserDTO userDTO) {

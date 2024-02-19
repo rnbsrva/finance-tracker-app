@@ -2,11 +2,13 @@ package com.akerke.financeapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import javax.net.ssl.*;
 import java.security.cert.X509Certificate;
 
 @SpringBootApplication
+@EnableAspectJAutoProxy
 public class FinanceAppApplication {
 
     public static void main(String[] args) {

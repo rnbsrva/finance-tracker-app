@@ -13,7 +13,7 @@ public interface BudgetService {
 
     List<Budget> getAllByUserId(Long userId);
 
-    Budget update(BudgetDTO budgetDTO);
+    Budget update(Long id, BudgetDTO budgetDTO);
 
     void deleteAllByUserId(Long userId);
 

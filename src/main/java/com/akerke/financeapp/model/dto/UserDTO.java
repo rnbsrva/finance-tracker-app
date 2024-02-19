@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -14,6 +15,14 @@ public class UserDTO {
     private String surname;
     private String email;
     private LocalDate birthDate;
-    private String password;
 
+    public UserDTO(String name, String surname, String email) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+    }
+
+
+    public UserDTO() {
+    }
 }

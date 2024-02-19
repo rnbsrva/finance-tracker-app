@@ -15,7 +15,7 @@ public interface AccountService {
 
     Account getById(Long id);
 
-    Account update(AccountDTO accountDTO);
+    Account update(Long id, AccountDTO accountDTO);
 
     void deleteByUserId(Long userId);
 

@@ -15,7 +15,7 @@ public interface TransactionService {
 
     Transaction getById(Long id);
 
-    Transaction update(TransactionDTO transactionDTO);
+    Transaction update(Long id, TransactionDTO transactionDTO);
 
     void delete(Long id);
 

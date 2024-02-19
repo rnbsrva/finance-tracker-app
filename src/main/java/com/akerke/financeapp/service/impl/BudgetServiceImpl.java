@@ -28,6 +28,7 @@ public class BudgetServiceImpl implements BudgetService {
         var user = userService.getById(budgetDTO.userId());
         var category = categoryService.getById(budgetDTO.categoryId());
 
+
         budget.setCategory(category);
         budget.setUser(user);
 
@@ -37,6 +38,11 @@ public class BudgetServiceImpl implements BudgetService {
     @Override
     public List<Budget> getAll() {
         return budgetRepository.findAll();
+    }
+
+    @Override
+    public Budget getById(Long id) {
+        return budgetRepository.findByID(id);
     }
 
     @Override

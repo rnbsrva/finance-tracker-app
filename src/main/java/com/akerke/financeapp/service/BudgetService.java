@@ -11,6 +11,8 @@ public interface BudgetService {
 
     List<Budget> getAll();
 
+    Budget getById(Long id);
+
     List<Budget> getAllByUserId(Long userId);
 
     Budget update(Long id, BudgetDTO budgetDTO);

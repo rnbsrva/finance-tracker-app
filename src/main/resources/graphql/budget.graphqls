@@ -1,0 +1,14 @@
+type Budget {
+    id: ID!
+    isExceeded: Boolean
+    limitAmount: String
+    moneySpent: String
+    category : Category
+    user: User
+}
+
+input BudgetDTO {
+    limitAmount: String
+    categoryId : ID
+    userId: ID!
+}

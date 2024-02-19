@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -21,6 +20,9 @@ public class Transaction extends BaseEntity {
 
     @ManyToOne
     private Category category;
+
+    @ManyToOne
+    private Account account;
 
     private TransactionType type;
     private BigDecimal amount;

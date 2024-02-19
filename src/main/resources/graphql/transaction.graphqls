@@ -1,0 +1,17 @@
+type Transaction {
+    id: ID,
+#    createdDate:
+    user: User
+    category: Category
+    amount: String
+#    transactionType: TransactionType
+    account: Account
+}
+
+input TransactionDTO {
+    userId: ID,
+    accountId:ID,
+    categoryId:ID,
+    amount: String
+    #    transactionType: TransactionType
+}

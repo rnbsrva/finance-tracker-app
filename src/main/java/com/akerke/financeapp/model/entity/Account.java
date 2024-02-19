@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,4 +20,10 @@ public class Account extends BaseEntity {
 
     @ManyToOne
     private User user;
+
+    @OneToMany(
+            mappedBy = "account",
+            cascade = CascadeType.ALL
+    )
+    private List<Transaction> transactions;
 }

@@ -24,12 +24,17 @@ public class CategoryServiceImpl implements CategoryService {
         var category = categoryMapper.toModel(categoryDTO);
         var user = userService.getById(categoryDTO.userId());
         category.setUser(user);
-        return category;
+        return categoryRepository.save(category);
     }
 
     @Override
     public List<Category> getAll() {
         return categoryRepository.findAll();
+    }
+
+    @Override
+    public List<Category> getAllByUserId(Long userId) {
+        return categoryRepository.findCategoriesByUserId(userId);
     }
 
     @Override

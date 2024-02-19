@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 public record TransactionDTO (
         Long userId,
         Long categoryId,
+        Long accountId,
         TransactionType transactionType,
         BigDecimal amount
 ){

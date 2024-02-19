@@ -1,0 +1,42 @@
+type Query {
+    me: User!
+
+    getCategoriesByUserId(userId: ID!): [Category]
+
+
+    getBudgetsByUserId(userId: ID!): [Budget]
+    getBudgetById(id: ID!): Budget
+
+    getAccountsByUserId(userId: ID!):[Account]
+    getAccountById(id:ID!):Account
+
+    getTransactionById(id:ID!):Transaction
+    getTransactionsByUserId(userId: ID): [Transaction]
+
+
+
+}
+
+type Mutation {
+    register(userDTO: UserDTO!): User!
+    updateUser(id: ID!, userDTO: UserDTO!): User!
+    deleteUser(id: ID!): Boolean
+
+    saveCategory(categoryDTO: CategoryDTO): Category
+    updateCategory(id: ID!, categoryDTO: CategoryDTO!):Category
+    deleteCategory(id: ID!):ID
+
+    saveBudget(budgetDTO: BudgetDTO!): Budget!
+    updateBudget(id: ID!, budgetDTO: BudgetDTO!) : Budget
+    deleteBudget(id:ID!) : ID
+
+    saveAccount(accountDTO : AccountDTO):Account
+    updateAccount(id:ID, accountDTO : AccountDTO):Account
+    deleteAccount(id:ID):ID
+
+    saveTransaction(transactionDTO : TransactionDTO):Transaction
+    updateTransaction(id:ID, transactionDTO:TransactionDTO):Transaction
+    deleteTransaction(id:ID):ID
+
+
+}

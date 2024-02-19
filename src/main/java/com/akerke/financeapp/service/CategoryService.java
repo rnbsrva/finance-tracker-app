@@ -11,6 +11,8 @@ public interface CategoryService {
 
     List<Category> getAll();
 
+    List<Category> getAllByUserId(Long userId);
+
     Category getById(Long id);
 
     Category update(Long id, CategoryDTO categoryDTO);

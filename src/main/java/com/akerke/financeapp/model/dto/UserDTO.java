@@ -15,7 +15,6 @@ public class UserDTO {
     private String surname;
     private String username;
     private String email;
-    private LocalDate birthDate;
 
     public UserDTO(String name, String surname, String username, String email) {
         this.name = name;

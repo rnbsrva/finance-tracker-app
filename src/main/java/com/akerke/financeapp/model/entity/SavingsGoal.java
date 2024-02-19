@@ -10,14 +10,10 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-public class SavingsGoal {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class SavingsGoal extends Account {
 
     private BigDecimal targetMoney;
     private LocalDate targetDate;
-    private BigDecimal savedMoney;
     private Boolean isAchieved;
 
     @ManyToOne

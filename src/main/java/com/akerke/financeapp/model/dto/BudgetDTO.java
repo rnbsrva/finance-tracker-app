@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public record BudgetDTO(
         Long userId,
-        BigDecimal limit,
-        Long categoryId
+        Long categoryId,
+        BigDecimal limitAmount
 ) {
 }

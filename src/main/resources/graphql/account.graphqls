@@ -1,0 +1,14 @@
+type Account {
+    id:ID,
+    name:String,
+    balance: String,
+    user: User
+#    transactions: [Transaction]
+
+}
+
+input AccountDTO {
+    userId: ID,
+    name: String,
+    balance: String
+}

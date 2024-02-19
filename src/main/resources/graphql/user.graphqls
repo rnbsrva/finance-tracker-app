@@ -1,0 +1,15 @@
+
+type User {
+    id: ID!
+    name: String
+    surname: String
+    username: String!
+    email: String!
+}
+
+input UserDTO {
+    name: String
+    surname: String
+    username: String!
+    email: String!
+}

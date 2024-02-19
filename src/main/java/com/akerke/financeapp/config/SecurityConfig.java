@@ -19,11 +19,12 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
-                .oauth2Login(Customizer.withDefaults())
-                .cors(Customizer.withDefaults())
-                .csrf().disable();
+//                .oauth2Login(Customizer.withDefaults())
+//                .cors(Customizer.withDefaults())
+//                .csrf().disable()
+                ;
         return http.build();
     }
 

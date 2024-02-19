@@ -1,4 +1,4 @@
-package com.akerke.financeapp.config.aspect;
+package com.akerke.financeapp.common.aspect;
 
 import com.akerke.financeapp.common.mapper.UserMapper;
 import com.akerke.financeapp.model.dto.UserDTO;
@@ -32,10 +32,10 @@ public class BeforeMeAspect {
             return;
         }
 
-        var preferredUsername = oidcUser.getClaims().get("preferred_username");
+        var preferredUsername =(String) oidcUser.getClaims().get("preferred_username");
         var givenName = (String) oidcUser.getClaims().get("given_name");
         var familyName = (String) oidcUser.getClaims().get("family_name");
-        var user = userMapper.toModel(new UserDTO(givenName, familyName, email));
+        var user = userMapper.toModel(new UserDTO(givenName, familyName, preferredUsername,email));
         log.info("Saving user %s".formatted(email));
         userRepository.save(user);
     }

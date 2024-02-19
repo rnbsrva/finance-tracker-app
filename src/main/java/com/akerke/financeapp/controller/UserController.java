@@ -1,6 +1,5 @@
 package com.akerke.financeapp.controller;
 
-import com.akerke.financeapp.model.dto.UserDTO;
 import com.akerke.financeapp.model.entity.User;
 import com.akerke.financeapp.service.UserService;
 import lombok.RequiredArgsConstructor;

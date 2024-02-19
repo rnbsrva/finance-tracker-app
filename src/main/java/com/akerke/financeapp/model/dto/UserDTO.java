@@ -13,12 +13,14 @@ public class UserDTO {
 
     private String name;
     private String surname;
+    private String username;
     private String email;
     private LocalDate birthDate;
 
-    public UserDTO(String name, String surname, String email) {
+    public UserDTO(String name, String surname, String username, String email) {
         this.name = name;
         this.surname = surname;
+        this.username = username;
         this.email = email;
     }
 

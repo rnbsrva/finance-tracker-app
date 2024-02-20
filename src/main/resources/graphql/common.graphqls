@@ -1,8 +1,19 @@
+scalar BigDecimal
+scalar LocalDateTime
+scalar Date
+    @specifiedBy( url:
+    "https://tools.ietf.org/html/rfc3339"
+    )
+
+interface BaseEntity {
+    createdDate: LocalDateTime
+    lastModifiedDate: LocalDateTime
+}
+
 type Query {
     me: User!
 
     getCategoriesByUserId(userId: ID!): [Category]
-
 
     getBudgetsByUserId(userId: ID!): [Budget]
     getBudgetById(id: ID!): Budget
@@ -13,6 +24,8 @@ type Query {
     getTransactionById(id:ID!):Transaction
     getTransactionsByUserId(userId: ID): [Transaction]
 
+    getSavingsAccountById(id:ID): SavingsAccount
+    getSavingsAccountByUserId(userId:ID): [SavingsAccount]
 
 
 }
@@ -38,5 +51,8 @@ type Mutation {
     updateTransaction(id:ID, transactionDTO:TransactionDTO):Transaction
     deleteTransaction(id:ID):ID
 
-
+    saveSavingsAccount(savingsAccountDTO: SavingsAccountDTO): SavingsAccount
+    updateSavingsAccount(id:ID, savingsAccountDTO: SavingsAccountDTO):SavingsAccount
+    deleteSavingsAccount(id:ID):ID
 }
+

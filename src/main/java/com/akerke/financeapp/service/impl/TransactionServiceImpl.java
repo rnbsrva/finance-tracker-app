@@ -4,6 +4,7 @@ import com.akerke.financeapp.common.mapper.TransactionMapper;
 import com.akerke.financeapp.model.dto.TransactionDTO;
 import com.akerke.financeapp.model.entity.Transaction;
 import com.akerke.financeapp.repository.TransactionRepository;
+import com.akerke.financeapp.service.AccountService;
 import com.akerke.financeapp.service.CategoryService;
 import com.akerke.financeapp.service.TransactionService;
 import com.akerke.financeapp.service.UserService;
@@ -19,19 +20,23 @@ public class TransactionServiceImpl implements TransactionService {
     private final TransactionRepository transactionRepository;
     private final UserService userService;
     private final CategoryService categoryService;
+    private final AccountService accountService;
     private final TransactionMapper transactionMapper;
 
     @Override
     public Transaction save(TransactionDTO transactionDTO) {
+
         var transaction = transactionMapper.toModel(transactionDTO);
 
         var user = userService.getById(transactionDTO.userId());
         var category = categoryService.getById(transactionDTO.categoryId());
+        var account = accountService.getById(transactionDTO.accountId());
 
         transaction.setUser(user);
         transaction.setCategory(category);
+        transaction.setAccount(account);
 
-        return transaction;
+        return transactionRepository.save(transaction);
     }
 
     @Override

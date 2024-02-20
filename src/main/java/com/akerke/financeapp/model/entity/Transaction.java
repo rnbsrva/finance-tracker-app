@@ -24,7 +24,7 @@ public class Transaction extends BaseEntity {
     @ManyToOne
     private Account account;
 
-    private TransactionType type;
+    private TransactionType transactionType;
     private BigDecimal amount;
 
 }

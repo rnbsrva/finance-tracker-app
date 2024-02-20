@@ -1,0 +1,17 @@
+type SavingsAccount implements BaseEntity {
+    id:ID,
+    createdDate: LocalDateTime
+    lastModifiedDate: LocalDateTime
+    name:String,
+    balance: BigDecimal,
+    user: User
+    transactions: [Transaction]
+    targetMoney : BigDecimal,
+    targetDate : Date
+}
+
+input SavingsAccountDTO {
+    userId : ID,
+    targetMoney : BigDecimal,
+    targetDate : Date
+}

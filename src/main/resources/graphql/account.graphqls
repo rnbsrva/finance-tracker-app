@@ -1,14 +1,15 @@
-type Account {
+type Account implements BaseEntity{
+    createdDate: LocalDateTime
+    lastModifiedDate: LocalDateTime
     id:ID,
     name:String,
-    balance: String,
+    balance: BigDecimal,
     user: User
-#    transactions: [Transaction]
-
+    transactions: [Transaction]
 }
 
 input AccountDTO {
-    userId: ID,
+    userId: ID!,
     name: String,
-    balance: String
+    balance: BigDecimal
 }

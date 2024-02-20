@@ -1,14 +1,16 @@
-type Budget {
+type Budget implements BaseEntity{
     id: ID!
+    createdDate: LocalDateTime
+    lastModifiedDate: LocalDateTime
     isExceeded: Boolean
-    limitAmount: String
-    moneySpent: String
+    limitAmount: BigDecimal
+    moneySpent: BigDecimal
     category : Category
     user: User
 }
 
 input BudgetDTO {
-    limitAmount: String
+    limitAmount: BigDecimal
     categoryId : ID
     userId: ID!
 }

@@ -1,5 +1,7 @@
-type Category {
+type Category implements BaseEntity {
     id: ID!
+    createdDate: LocalDateTime
+    lastModifiedDate: LocalDateTime
     name: String
     user: User
 }

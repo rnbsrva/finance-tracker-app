@@ -7,7 +7,7 @@ import org.mapstruct.*;
 import java.util.ArrayList;
 
 @Mapper(
-        imports = {ArrayList.class, Transaction.class, Budget.class, SavingsGoal.class, Account.class, Category.class},
+        imports = {ArrayList.class, Transaction.class, Budget.class, SavingsAccount.class, Account.class, Category.class},
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
         nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS
 )
@@ -15,7 +15,7 @@ public interface UserMapper {
 
     @Mapping(target = "transactions", expression = "java(new ArrayList<Transaction>())")
     @Mapping(target = "accounts", expression = "java(new ArrayList<Account>())")
-    @Mapping(target = "savingsGoals", expression = "java(new ArrayList<SavingsGoal>())")
+    @Mapping(target = "savingsAccounts", expression = "java(new ArrayList<SavingsAccount>())")
     @Mapping(target = "budgets", expression = "java(new ArrayList<Budget>())")
     @Mapping(target = "categories", expression = "java(new ArrayList<Category>())")
     User toModel(UserDTO userDTO);

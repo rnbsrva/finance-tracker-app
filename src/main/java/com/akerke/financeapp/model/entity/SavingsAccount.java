@@ -10,12 +10,10 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-public class SavingsGoal extends Account {
+public class SavingsAccount extends Account {
 
     private BigDecimal targetMoney;
     private LocalDate targetDate;
     private Boolean isAchieved;
 
-    @ManyToOne
-    private User user;
 }

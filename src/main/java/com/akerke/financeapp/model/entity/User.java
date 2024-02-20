@@ -1,14 +1,9 @@
 package com.akerke.financeapp.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDate;
-import java.util.Collection;
 import java.util.List;
 
 @Getter
@@ -43,7 +38,7 @@ public class User  extends BaseEntity {
             mappedBy = "user",
             cascade = CascadeType.ALL
     )
-    private List<SavingsGoal> savingsGoals;
+    private List<SavingsAccount> savingsAccounts;
 
     @OneToMany(
             mappedBy = "user",

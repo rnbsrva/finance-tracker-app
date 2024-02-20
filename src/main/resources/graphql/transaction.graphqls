@@ -1,17 +1,24 @@
-type Transaction {
+type Transaction implements BaseEntity{
     id: ID,
-#    createdDate:
+    createdDate: LocalDateTime
+    lastModifiedDate: LocalDateTime
     user: User
     category: Category
-    amount: String
-#    transactionType: TransactionType
+    amount: BigDecimal
+    transactionType: TransactionType
     account: Account
 }
+
 
 input TransactionDTO {
     userId: ID,
     accountId:ID,
     categoryId:ID,
-    amount: String
-    #    transactionType: TransactionType
+    amount: BigDecimal
+    transactionType: TransactionType
+}
+
+enum TransactionType {
+    INCOME
+    OUTGOING
 }

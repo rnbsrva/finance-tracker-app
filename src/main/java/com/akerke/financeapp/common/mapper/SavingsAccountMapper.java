@@ -1,8 +1,8 @@
 package com.akerke.financeapp.common.mapper;
 
-import com.akerke.financeapp.model.dto.SavingsGoalDTO;
+import com.akerke.financeapp.model.dto.SavingsAccountDTO;
 import com.akerke.financeapp.model.entity.Category;
-import com.akerke.financeapp.model.entity.SavingsGoal;
+import com.akerke.financeapp.model.entity.SavingsAccount;
 import com.akerke.financeapp.model.entity.User;
 import org.mapstruct.*;
 
@@ -11,16 +11,16 @@ import java.util.ArrayList;
 @Mapper(imports = {ArrayList.class, Category.class, User.class},
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
         nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
-public interface SavingsGoalMapper {
+public interface SavingsAccountMapper {
 
     @Mapping(target = "isAchieved", expression = "java(false)")
-    @Mapping(target = "savedMoney", expression = "java(new BigDecimal(\"0\"))")
-    SavingsGoal toModel(SavingsGoalDTO savingsGoalDTO);
+    SavingsAccount toModel(SavingsAccountDTO savingsAccountDTO);
 
-    SavingsGoalDTO toDTO(SavingsGoal savingsGoal);
+
+    SavingsAccountDTO toDTO(SavingsAccount savingsAccount);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "user", ignore = true)
-    void update(SavingsGoalDTO savingsGoalDTO, @MappingTarget SavingsGoal savingsGoal);
+    void update(SavingsAccountDTO savingsAccountDTO, @MappingTarget SavingsAccount savingsAccount);
 
 }

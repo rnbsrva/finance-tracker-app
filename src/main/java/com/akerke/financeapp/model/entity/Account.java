@@ -9,14 +9,17 @@ import java.util.List;
 
 @Entity
 @Getter
+@Inheritance(strategy = InheritanceType.JOINED)
 @Setter
 public class Account extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
     private BigDecimal balance;
+
 
     @ManyToOne
     private User user;

@@ -8,6 +8,7 @@ type SavingsAccount implements BaseEntity {
     transactions: [Transaction]
     targetMoney : BigDecimal,
     targetDate : Date
+    isAchieved: Boolean
 }
 
 input SavingsAccountDTO {

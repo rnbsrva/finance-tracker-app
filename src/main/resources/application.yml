@@ -1,3 +1,4 @@
+
 spring:
   graphql:
     graphiql:
@@ -29,9 +30,12 @@ spring:
             scope: openid
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/finance_app
+    url: jdbc:postgresql://localhost:5432/finance_app1
     username: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:0000}
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
 server:
   port: 2912
 logging:
